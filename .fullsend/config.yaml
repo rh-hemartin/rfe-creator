@@ -1,0 +1,3 @@
+version: "1"
+agents:
+  - source: rfe-creator/rfe-creator.yaml
