@@ -63,11 +63,11 @@ network_policies:
   jira_server:
     name: jira-server
     endpoints:
-      - host: "issues.redhat.com"
+      - host: "redhat.atlassian.net"
         port: 443
         protocol: rest
         enforcement: enforce
-        access: read-write
+        access: read-only
     binaries:
       - path: "**/python3"
       - path: "**/python3.*"

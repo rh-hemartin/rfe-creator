@@ -41,6 +41,7 @@ fi
 
 # Validate against schema using Python's jsonschema.
 # jsonschema is required — fail hard if not installed.
+python3 -m pip install jsonschema
 if ! python3 -c "import jsonschema" 2>/dev/null; then
   echo "FAIL: python3 jsonschema package is not installed (required by ADR 0022)"
   exit 1

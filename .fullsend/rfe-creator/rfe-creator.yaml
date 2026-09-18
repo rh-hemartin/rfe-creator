@@ -55,31 +55,18 @@ timeout_minutes: 120
 env:
   sandbox:
     FULLSEND_TASK: "${FULLSEND_TASK}"
+    JIRA_SERVER: "${JIRA_SERVER}"
+    JIRA_USER: "${JIRA_USER}"
+    JIRA_TOKEN: "${JIRA_TOKEN}"
+  runner:
+    JIRA_SERVER: ${JIRA_SERVER}
+    JIRA_USER: ${JIRA_USER}
+    JIRA_TOKEN: ${JIRA_TOKEN}
 
 overlays:
-  - when: 'runtime.forge == "gitlab"'
-    pre_script: rfe-creator/pre-rfe-creator.sh
-    post_script: rfe-creator/post-rfe-creator.sh
-    env:
-      runner:
-        JIRA_SERVER: ${JIRA_SERVER}
-        JIRA_USER: ${JIRA_USER}
-        JIRA_TOKEN: ${JIRA_TOKEN}
-      sandbox:
-        JIRA_SERVER: "${JIRA_SERVER}"
-        JIRA_USER: "${JIRA_USER}"
-        JIRA_TOKEN: "${JIRA_TOKEN}"
   - when: 'runtime.forge == "github"'
-    pre_script: rfe-creator/pre-rfe-creator.sh
-    post_script: rfe-creator/post-rfe-creator.sh
     env:
       runner:
-        JIRA_SERVER: ${JIRA_SERVER}
-        JIRA_USER: ${JIRA_USER}
-        JIRA_TOKEN: ${JIRA_TOKEN}
         GH_TOKEN: ${GH_TOKEN}
       sandbox:
-        JIRA_SERVER: "${JIRA_SERVER}"
-        JIRA_USER: "${JIRA_USER}"
-        JIRA_TOKEN: "${JIRA_TOKEN}"
         GH_TOKEN: "${GH_TOKEN}"
