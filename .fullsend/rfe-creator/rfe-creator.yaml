@@ -7,6 +7,12 @@ policy: https://raw.githubusercontent.com/fullsend-ai/agents/11dd3ad15ab5033fd04
 role: rfe-creator
 slug: opendatahub-io-rfe-creator
 
+trigger: >
+  event.entity.kind == "work_item"
+    && event.transition.kind == "comment_added"
+    && has(event.transition.comment.command)
+    && event.transition.comment.command == "/fs-rfe-creator"
+
 host_files:
   - src: rfe-creator/gcp-vertex.env
     dest: /sandbox/workspace/.env.d/gcp-vertex.env
