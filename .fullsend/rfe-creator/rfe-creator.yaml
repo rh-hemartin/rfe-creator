@@ -75,6 +75,7 @@ env:
 openshell:
   profiles:
     - rfe-creator/jira-profile.yaml
+
 providers:
   - rfe-creator/jira-provider.yaml
   - vertex-ai

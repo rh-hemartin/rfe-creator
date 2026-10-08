@@ -3,6 +3,15 @@ id: jira
 display_name: Jira
 description: Jira
 category: data
+credentials:
+  - name: api_token
+    description: Long-lived Jira access token
+    env_vars: [JIRA_TOKEN]
+    required: true
+    auth_style: bearer
+    header_name: authorization
+    refresh:
+      strategy: external
 endpoints:
   - host: "redhat.atlassian.net"
     port: 443
